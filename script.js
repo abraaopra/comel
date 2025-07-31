@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, scrollObserverOptions);
 
     // Seleciona todos os elementos a serem animados
-    const elementsToAnimate = document.querySelectorAll('.splide, .marca-link, .pilar-card');
+    const elementsToAnimate = document.querySelectorAll('.splide, .marca-link, .pilar-card, .produto-card');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollObserver.observe(el);
     });
 
-    // Inicialização do Slideshow de Garantia/Atuação (Splide.js)
+    // Inicialização do Slideshow (Splide.js)
     if (document.querySelector('#garantia-atuacao .splide')) {
         new Splide('#garantia-atuacao .splide', {
             type: 'loop',

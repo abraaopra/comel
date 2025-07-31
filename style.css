@@ -2,12 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --cor-primaria: #F58220; /* Laranja do logo */
-    --cor-secundaria: #FFDE00; /* Amarelo do logo */
-    --cor-fundo-geral: #f8f9fa;
-    --cor-fundo-claro: #FFFFFF;
-    --cor-texto: #212529;
-    --cor-texto-claro: #6c757d;
+    --cor-primaria: #F37021;
+    --cor-secundaria: #FDB913;
+    --cor-texto: #333333;
+    --cor-fundo-geral: #FFFFFF;
+    --cor-fundo-claro: #f8f9fa;
     --cor-branca: #ffffff;
     --cor-whatsapp: #25D366;
     --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -90,7 +89,7 @@ body {
     bottom: 0;
     left: 0;
     background-color: var(--cor-branca);
-    transition: width .3s ease;
+    transition: width 0.3s ease;
 }
 
 .main-nav a:hover::after {
@@ -100,7 +99,7 @@ body {
 /* ---- Seção Hero e Padrão ---- */
 #hero {
     background-color: var(--cor-secundaria);
-    color: var(--cor-texto); /* Alterado para melhor contraste com o amarelo */
+    color: var(--cor-texto);
     text-align: center;
     padding: 7rem 0;
 }
@@ -114,7 +113,6 @@ body {
 .hero-subtitle {
     font-size: 1.25rem;
     font-weight: 400;
-    opacity: .9;
 }
 
 .section {
@@ -132,7 +130,7 @@ body {
 .section-subtitle {
     font-size: 1.1rem;
     margin-bottom: 3rem;
-    color: var(--cor-texto-claro);
+    color: #6c757d;
     max-width: 600px;
     margin: 0 auto 3rem auto;
 }
@@ -141,10 +139,10 @@ body {
     background-color: var(--cor-fundo-claro);
 }
 
-/* ---- Seção Garantia e Atuação (Slideshow) - ESTILOS AJUSTADOS ---- */
+/* ---- Seção Garantia e Atuação (Slideshow) - TAMANHO REDUZIDO ---- */
 #garantia-atuacao {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4rem;      /* Espaçamento superior reduzido */
+    padding-bottom: 4rem;   /* Espaçamento inferior reduzido */
 }
 
 #garantia-atuacao .section-title {
@@ -152,8 +150,8 @@ body {
 }
 
 #garantia-atuacao .splide {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 650px;   /* Largura máxima do slideshow REDUZIDA */
+    margin: 0 auto;     /* Centraliza o slideshow */
 }
 
 .splide__slide img {
@@ -165,7 +163,7 @@ body {
 
 .splide__arrow {
     background-color: var(--cor-primaria);
-    opacity: .8;
+    opacity: 0.8;
 }
 
 .splide__arrow svg {
@@ -173,16 +171,56 @@ body {
 }
 
 .splide__pagination__page {
-    background-color: rgba(245, 130, 32, .4);
+    background-color: rgba(243, 112, 33, 0.4);
 }
 
 .splide__pagination__page.is-active {
     background-color: var(--cor-primaria);
 }
 
+
+/* ---- Seção de Produtos ---- */
+#produtos .section-title {
+    margin-bottom: 3rem;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.produto-card {
+    background-color: var(--cor-branca);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.produto-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+}
+
 /* ---- Seção de Marcas ---- */
-#marcas .section-subtitle {
-    display: none;
+#marcas .section-title {
+    margin-bottom: 3rem;
 }
 
 .marcas-grid {
@@ -196,10 +234,9 @@ body {
 }
 
 .marca-item {
-    background-color: var(--cor-branca);
+    background-color: var(--cor-fundo-claro);
     border-radius: 12px;
-    box-shadow: var(--sombra-suave);
-    transition: transform .3s ease, box-shadow .3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 120px;
     padding: 1rem;
     display: flex;
@@ -236,7 +273,7 @@ body {
 .pilar-card img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--sombra-suave);
@@ -246,12 +283,12 @@ body {
 .pilar-title {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     color: var(--cor-primaria);
 }
 
 .pilar-description {
-    color: var(--cor-texto-claro);
+    color: #6c757d;
     font-size: 1.1rem;
 }
 
@@ -261,7 +298,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.1rem;
-    color: var(--cor-texto-claro);
+    color: #6c757d;
     line-height: 1.8;
 }
 
@@ -276,14 +313,14 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    transition: all .3s ease;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, .4);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
 }
 
 .btn-whatsapp:hover {
     background-color: #22c55e;
     transform: translateY(-3px);
-    box-shadow: 0 7px 25px rgba(37, 211, 102, .5);
+    box-shadow: 0 7px 25px rgba(37, 211, 102, 0.5);
 }
 
 .btn-whatsapp .fab {
@@ -306,7 +343,7 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .whatsapp-float:hover {
@@ -318,7 +355,7 @@ body {
     color: var(--cor-branca);
     text-align: center;
     padding: 2.5rem 0;
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 
 /* ---- Responsividade ---- */
@@ -326,10 +363,16 @@ body {
     .marcas-grid {
         grid-template-columns: repeat(5, 1fr);
     }
+    .produtos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
     .marcas-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .pilares-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -338,11 +381,11 @@ body {
     .main-nav {
         display: none;
     }
-
     .marcas-grid,
-    .pilares-grid {
+    .pilares-grid,
+    .produtos-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+        gap: 2rem;
     }
 }
 
@@ -350,16 +393,14 @@ body {
     .hero-title {
         font-size: 2.2rem;
     }
-
     .section {
         padding: 4rem 0;
     }
-
     .marcas-grid,
-    .pilares-grid {
+    .pilares-grid,
+    .produtos-grid {
         grid-template-columns: 1fr;
     }
-
     .marca-item {
         height: 100px;
     }
