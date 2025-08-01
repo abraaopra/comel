@@ -51,31 +51,26 @@ body {
     align-items: center;
 }
 
-.logo-container {
-    background-color: var(--cor-branca);
-    padding: 8px 12px;
-    border-radius: 50px;
-    box-shadow: var(--sombra-suave);
+.logo-link {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .logo-image {
-    height: 35px;
+    height: 65px;
     width: auto;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 40px;
 }
 
 .main-nav a {
     color: var(--cor-branca);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     padding-bottom: 5px;
     position: relative;
@@ -139,28 +134,7 @@ body {
     background-color: var(--cor-fundo-claro);
 }
 
-/* ---- Seção Garantia e Atuação (Slideshow) ---- */
-#garantia-atuacao {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
-#garantia-atuacao .section-title {
-    margin-bottom: 1rem;
-}
-
-#garantia-atuacao .splide {
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.splide__slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: var(--sombra-suave);
-}
-
+/* ---- Estilos Gerais para Slideshows ---- */
 .splide__arrow {
     background-color: var(--cor-primaria);
     opacity: 0.8;
@@ -178,16 +152,35 @@ body {
     background-color: var(--cor-primaria);
 }
 
+/* ---- Seção Garantia e Atuação (Slideshow) ---- */
+#garantia-atuacao {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
 
-/* ---- Seção de Produtos ---- */
+#garantia-atuacao .section-title {
+    margin-bottom: 1rem;
+}
+
+#garantia-atuacao .splide {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+#garantia-atuacao .splide__slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+}
+
+/* ---- Seção de Produtos (Slideshow) ---- */
 #produtos .section-title {
     margin-bottom: 3rem;
 }
 
-.produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+#produtos .splide__track {
+    padding: 1rem 0; /* Espaço para a sombra não ser cortada */
 }
 
 .produto-card {
@@ -197,11 +190,12 @@ body {
     padding: 1rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .produto-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .1);
 }
 
 .produto-card img {
@@ -218,15 +212,19 @@ body {
     color: var(--cor-primaria);
 }
 
-/* ---- Seção de Marcas ---- */
+/* ---- Seção de Marcas (Slideshow) ---- */
 #marcas .section-title {
     margin-bottom: 3rem;
 }
 
-.marcas-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
+#marcas .splide__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#marcas .splide__track {
+    cursor: grab; /* <-- Adicionado para indicar que é arrastável */
 }
 
 .marca-link {
@@ -236,8 +234,9 @@ body {
 .marca-item {
     background-color: var(--cor-fundo-claro);
     border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
     height: 120px;
+    width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -250,9 +249,10 @@ body {
 }
 
 .marca-item img {
-    max-width: 90%;
-    max-height: 70%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    padding: 10px;
 }
 
 /* ---- Seção Pilares ---- */
@@ -292,7 +292,16 @@ body {
     font-size: 1.1rem;
 }
 
-/* ---- Seção de Contato ---- */
+/* ---- Outras seções ---- */
+#missao p,
+#visao p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #6c757d;
+    line-height: 1.8;
+}
+
 #contato {
     padding-bottom: 4rem;
 }
@@ -311,7 +320,7 @@ body {
 .contact-info .address {
     font-weight: 600;
     color: var(--cor-texto);
-    margin-top: 0.5rem;
+    margin-top: .5rem;
 }
 
 .btn-whatsapp {
@@ -325,14 +334,14 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all .3s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, .4);
 }
 
 .btn-whatsapp:hover {
     background-color: #22c55e;
     transform: translateY(-3px);
-    box-shadow: 0 7px 25px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 7px 25px rgba(37, 211, 102, .5);
 }
 
 .btn-whatsapp .fab {
@@ -355,14 +364,14 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1) rotate(10deg);
 }
 
-/* ---- Rodapé com Ícone Social ---- */
+/* ---- Rodapé ---- */
 .footer {
     background-color: var(--cor-texto);
     color: #adb5bd;
@@ -382,7 +391,7 @@ body {
 .footer-address,
 .footer-copyright,
 .footer-social {
-    flex: 1 1 300px; /* Permite que os itens quebrem a linha de forma inteligente */
+    flex: 1 1 300px;
 }
 
 .footer-address {
@@ -406,51 +415,52 @@ body {
     color: var(--cor-branca);
     font-size: 1.8rem;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color .3s ease, transform .3s ease;
 }
 
 .footer-social a:hover {
-    color: var(--cor-primaria); /* Laranja da marca no hover */
+    color: var(--cor-primaria);
     transform: scale(1.1);
 }
 
-
 /* ---- Responsividade ---- */
-@media (max-width: 1200px) {
-    .marcas-grid { grid-template-columns: repeat(5, 1fr); }
-    .produtos-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
 @media (max-width: 992px) {
-    .marcas-grid { grid-template-columns: repeat(3, 1fr); }
-    .pilares-grid { grid-template-columns: repeat(3, 1fr); }
+    .pilares-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .main-nav { display: none; }
-    .marcas-grid,
-    .pilares-grid,
-    .produtos-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .main-nav {
+        display: none;
+    }
+
+    .pilares-grid {
+        grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
     }
+
     .footer-content {
         flex-direction: column;
         gap: 1.5rem;
     }
+
     .footer-address,
     .footer-copyright,
     .footer-social {
-        justify-content: center; /* Centraliza todos no mobile */
+        justify-content: center;
         text-align: center;
     }
 }
 
 @media (max-width: 576px) {
-    .hero-title { font-size: 2.2rem; }
-    .section { padding: 4rem 0; }
-    .marcas-grid,
-    .pilares-grid,
-    .produtos-grid { grid-template-columns: 1fr; }
-    .marca-item { height: 100px; }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .section {
+        padding: 4rem 0;
+    }
+    .pilares-grid {
+        grid-template-columns: 1fr;
+    }
 }

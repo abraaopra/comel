@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Efeito de 'fade-in' para seções e elementos
-    const scrollObserverOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
+    // Efeito de 'fade-in' para elementos ao rolar a página
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -15,10 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    }, scrollObserverOptions);
+    }, { threshold: 0.1 });
 
-    // Seleciona todos os elementos a serem animados
-    const elementsToAnimate = document.querySelectorAll('.splide, .marca-link, .pilar-card, .produto-card');
+    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -26,16 +19,47 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollObserver.observe(el);
     });
 
-    // Inicialização do Slideshow (Splide.js)
-    if (document.querySelector('#garantia-atuacao .splide')) {
-        new Splide('#garantia-atuacao .splide', {
+    // Inicialização do Slideshow de Garantia
+    if (document.querySelector('#garantia-slider')) {
+        new Splide('#garantia-slider', {
             type: 'loop',
             perPage: 1,
             autoplay: true,
             interval: 5000,
             pauseOnHover: true,
-            arrows: true,
-            pagination: true,
+        }).mount();
+    }
+
+    // Inicialização do Slideshow de Produtos
+    if (document.querySelector('#produtos-slider')) {
+        new Splide('#produtos-slider', {
+            type: 'loop',
+            perPage: 4,
+            gap: '1.5rem',
+            pagination: false,
+            breakpoints: {
+                992: { perPage: 3 },
+                768: { perPage: 2 },
+                576: { perPage: 1 },
+            }
+        }).mount();
+    }
+
+    // Inicialização do Slideshow de Marcas (COM SETAS E SEM AUTOPLAY)
+    if (document.querySelector('#marcas-slider')) {
+        new Splide('#marcas-slider', {
+            type: 'loop',
+            perPage: 6,
+            gap: '1.5rem',
+            autoplay: false,      /* Desativado */
+            arrows: true,         /* Ativado */
+            pagination: false,
+            perMove: 1,
+            breakpoints: {
+                992: { perPage: 5 },
+                768: { perPage: 4 },
+                576: { perPage: 3 },
+            }
         }).mount();
     }
 });
