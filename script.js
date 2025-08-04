@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
 
-    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card');
+    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card, .padrao-imagem, .padrao-texto');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }).mount();
     }
 
-    // Inicialização do Slideshow de Marcas (COM SETAS E SEM AUTOPLAY)
+    // Inicialização do Slideshow de Marcas
     if (document.querySelector('#marcas-slider')) {
         new Splide('#marcas-slider', {
             type: 'loop',
             perPage: 6,
             gap: '1.5rem',
-            autoplay: false,      /* Desativado */
-            arrows: true,         /* Ativado */
+            autoplay: false,
+            arrows: true,
             pagination: false,
             perMove: 1,
             breakpoints: {
