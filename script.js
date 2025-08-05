@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
 
-    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card, .padrao-imagem, .padrao-texto');
+    // CORREÇÃO: Adicionado '.video-card' à lista de elementos para animar
+    const elementsToAnimate = document.querySelectorAll('.splide, .marca-link, .pilar-card, .video-card');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -19,47 +20,26 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollObserver.observe(el);
     });
 
-    // Inicialização do Slideshow de Garantia
-    if (document.querySelector('#garantia-slider')) {
-        new Splide('#garantia-slider', {
-            type: 'loop',
-            perPage: 1,
-            autoplay: true,
-            interval: 5000,
-            pauseOnHover: true,
-        }).mount();
-    }
+    // --- LÓGICA PARA PLAYER DE VÍDEO ---
+    document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const videoSrc = this.dataset.videoSrc;
+            if (!videoSrc) return;
+            
+            const videoElement = document.createElement('video');
+            videoElement.src = videoSrc;
+            videoElement.controls = true;
+            videoElement.autoplay = true;
+            videoElement.muted = false;
+            
+            this.innerHTML = '';
+            this.appendChild(videoElement);
+            this.style.cursor = 'default';
+        });
+    });
 
-    // Inicialização do Slideshow de Produtos
-    if (document.querySelector('#produtos-slider')) {
-        new Splide('#produtos-slider', {
-            type: 'loop',
-            perPage: 4,
-            gap: '1.5rem',
-            pagination: false,
-            breakpoints: {
-                992: { perPage: 3 },
-                768: { perPage: 2 },
-                576: { perPage: 1 },
-            }
-        }).mount();
-    }
-
-    // Inicialização do Slideshow de Marcas
-    if (document.querySelector('#marcas-slider')) {
-        new Splide('#marcas-slider', {
-            type: 'loop',
-            perPage: 6,
-            gap: '1.5rem',
-            autoplay: false,
-            arrows: true,
-            pagination: false,
-            perMove: 1,
-            breakpoints: {
-                992: { perPage: 5 },
-                768: { perPage: 4 },
-                576: { perPage: 3 },
-            }
-        }).mount();
-    }
+    // --- INICIALIZAÇÃO DOS SLIDESHOWS ---
+    if (document.getElementById('garantia-slider')) { new Splide('#garantia-slider', { type: 'loop', perPage: 1, autoplay: true, interval: 5000, pauseOnHover: true, }).mount(); }
+    if (document.getElementById('produtos-slider')) { new Splide('#produtos-slider', { type: 'loop', perPage: 4, gap: '1.5rem', pagination: false, breakpoints: { 992: { perPage: 3 }, 768: { perPage: 2 }, 576: { perPage: 1 }, } }).mount(); }
+    if (document.getElementById('marcas-slider')) { new Splide('#marcas-slider', { type: 'loop', perPage: 6, gap: '1.5rem', autoplay: false, arrows: true, pagination: false, perMove: 1, breakpoints: { 992: { perPage: 5 }, 768: { perPage: 4 }, 576: { perPage: 3 }, } }).mount(); }
 });
