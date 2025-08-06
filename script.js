@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
 
-    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card, .produto-card, .padrao-imagem, .padrao-texto');
+    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card, .produto-card, .padrao-imagem, .padrao-texto, .video-card');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -37,6 +37,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;modalGrid.innerHTML+=productHtml}),modal.classList.add('active'),document.body.style.overflow='hidden'}})});
     const closeModal=()=>{modal.classList.remove('active'),document.body.style.overflow='auto'};
     closeModalBtn.addEventListener('click',closeModal),modal.addEventListener('click',event=>{if(event.target===modal)closeModal()}),document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('active'))closeModal()});
+
+    // --- LÓGICA DO PLAYER DE VÍDEO ---
+    document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const videoSrc = this.dataset.videoSrc;
+            if (!videoSrc) return;
+            
+            const videoElement = document.createElement('video');
+            videoElement.src = videoSrc;
+            videoElement.controls = true;
+            videoElement.autoplay = true;
+            videoElement.muted = false;
+            
+            this.innerHTML = '';
+            this.appendChild(videoElement);
+            this.style.cursor = 'default';
+        });
+    });
 
     // --- INICIALIZAÇÃO DOS SLIDESHOWS ---
     if(document.getElementById('garantia-slider'))new Splide('#garantia-slider',{type:'loop',perPage:1,autoplay:true,interval:5000,pauseOnHover:true}).mount();
