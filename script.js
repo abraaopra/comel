@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
 
-    // CORREÇÃO: Adicionado '.video-card' à lista de elementos para animar
-    const elementsToAnimate = document.querySelectorAll('.splide, .marca-link, .pilar-card, .video-card');
+    const elementsToAnimate = document.querySelectorAll('.splide, .pilar-card, .video-card');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -37,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.cursor = 'default';
         });
     });
+
 
     // --- INICIALIZAÇÃO DOS SLIDESHOWS ---
     if (document.getElementById('garantia-slider')) { new Splide('#garantia-slider', { type: 'loop', perPage: 1, autoplay: true, interval: 5000, pauseOnHover: true, }).mount(); }
