@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DO MODAL DE PRODUTOS ---
     const productDetails = {
         alicates:{title:'Alicates e Ferramentas de Aperto',items:[{name:'',img:'images/alicate-exmp-3.jpg'},{name:'',img:'images/alicate-exmp-4.jpg'},{name:'',img:'images/alicate-exmp-5.jpg'}]},
+        equipamentosDeProtecao:{title:'Equipamentos de proteção',items:[{name:'',img:'images/escudo-exmp-2.jpg'},{name:'',img:'images/escudo-exmp-2.jpg'},{name:'',img:'images/escudo-exmp-2.jpg'}]},
         carrinhos:{title:'Carrinhos de Mão',items:[{name:'',img:'images/carrinho-exmp-1.jpg'},{name:'',img:'images/carrinho-exmp-2.jpg'},{name:'',img:'images/carrinho-exmp-5.jpg'}]},
         ferramentas:{title:'Ferramentas Manuais Diversas',items:[{name:'',img:'images/chave-exmp-4.jpg'},{name:"",img:'images/chave-exmp-5.jpg'},{name:'',img:'images/chave-exmp-7.jpg'}]},
         escadas:{title:'Escadas',items:[{name:'',img:'images/escadas-exmp-1.jpg'},{name:'',img:'images/escadas-exmp-2.jpg'},{name:'',img:'images/escadas-exmp-3.jpg'}]},
